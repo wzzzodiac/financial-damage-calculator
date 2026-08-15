@@ -1,1 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Financial Damage Calculator</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="container">
+
+    <header class="hero">
+      <p class="eyebrow">PERSONAL FINANCE // HIGHLY QUESTIONABLE SCIENCE</p>
+
+      <h1>Financial Damage Calculator</h1>
+
+      <p class="subtitle">
+        Find out how much that purchase is actually going to hurt.
+      </p>
+    </header>
+
+
+    <section class="calculator-card">
+
+      <div class="input-grid">
+
+        <div class="input-group">
+          <label for="price">Purchase price</label>
+
+          <div class="input-wrapper">
+            <span>€</span>
+            <input
+              type="number"
+              id="price"
+              min="0"
+              step="0.01"
+              placeholder="593"
+              required
+            >
+          </div>
+        </div>
+
+
+        <div class="input-group">
+          <label for="hourlyWage">Hourly wage</label>
+
+          <div class="input-wrapper">
+            <span>€</span>
+            <input
+              type="number"
+              id="hourlyWage"
+              min="0"
+              step="0.01"
+              placeholder="17"
+              required
+            >
+          </div>
+
+          <small>
+            Monthly salary? Divide your net monthly salary by your monthly working hours.
+          </small>
+        </div>
+
+
+        <div class="input-group">
+          <label for="monthlyHours">Working hours per month</label>
+
+          <div class="input-wrapper">
+            <input
+              type="number"
+              id="monthlyHours"
+              min="1"
+              step="0.1"
+              placeholder="100"
+              required
+            >
+            <span>h</span>
+          </div>
+        </div>
+
+
+        <div class="input-group">
+          <label for="fixedExpenses">Monthly fixed expenses</label>
+
+          <div class="input-wrapper">
+            <span>€</span>
+            <input
+              type="number"
+              id="fixedExpenses"
+              min="0"
+              step="0.01"
+              placeholder="500"
+              required
+            >
+          </div>
+
+          <small>Enter 0 if you have none.</small>
+        </div>
+
+
+        <div class="input-group">
+          <label for="currentDebt">Current debt</label>
+
+          <div class="input-wrapper">
+            <span>€</span>
+            <input
+              type="number"
+              id="currentDebt"
+              min="0"
+              step="0.01"
+              placeholder="0"
+              required
+            >
+          </div>
+
+          <small>Enter 0 if you have none.</small>
+        </div>
+
+
+        <div class="input-group">
+          <label for="donerPrice">Average Döner price</label>
+
+          <div class="input-wrapper">
+            <span>€</span>
+            <input
+              type="number"
+              id="donerPrice"
+              min="0.01"
+              step="0.01"
+              value="8"
+              required
+            >
+          </div>
+
+          <small>
+            Because every serious financial model obviously needs Döner.
+          </small>
+        </div>
+
+      </div>
+
+
+      <button id="calculateButton">
+        CALCULATE DAMAGE
+      </button>
+
+    </section>
+
+
+    <section id="loadingSection" class="loading-section hidden">
+
+      <p id="loadingText">
+        Analysing questionable financial decisions...
+      </p>
+
+      <div class="loading-track">
+        <div id="loadingBar" class="loading-bar"></div>
+      </div>
+
+    </section>
+
+
+    <section id="resultSection" class="results hidden">
+
+      <div class="damage-header">
+        <p>FINANCIAL DAMAGE</p>
+
+        <h2 id="damageLevel">
+          SEVERE
+        </h2>
+      </div>
+
+
+      <div class="score-section">
+
+        <div class="score-circle">
+          <span id="scoreValue">0</span>
+          <small>/ 100</small>
+        </div>
+
+        <div class="score-info">
+          <p>Financial Damage Score</p>
+
+          <div class="score-track">
+            <div id="scoreBar" class="score-bar"></div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <article class="stat-card">
+          <p>Work required</p>
+          <strong id="workHours">0 h</strong>
+        </article>
+
+
+        <article class="stat-card">
+          <p>Monthly income</p>
+          <strong id="monthlyIncome">€0</strong>
+        </article>
+
+
+        <article class="stat-card">
+          <p>Disposable income</p>
+          <strong id="disposableIncome">€0</strong>
+        </article>
+
+
+        <article class="stat-card">
+          <p>Monthly income consumed</p>
+          <strong id="monthlyPercent">0%</strong>
+        </article>
+
+
+        <article class="stat-card">
+          <p>Disposable income consumed</p>
+          <strong id="disposablePercent">0%</strong>
+        </article>
+
+
+        <article class="stat-card">
+          <p>Days of disposable income</p>
+          <strong id="incomeDays">0 days</strong>
+        </article>
+
+
+        <article class="stat-card">
+          <p>Döner equivalent</p>
+          <strong id="donerEquivalent">0 Döner</strong>
+        </article>
+
+
+        <article class="stat-card">
+          <p>Debt after buying nothing</p>
+          <strong id="debtOpportunity">€0</strong>
+        </article>
+
+      </div>
+
+
+      <div class="comment-box">
+        <p id="damageComment">
+          Your financial decisions are being judged.
+        </p>
+      </div>
+
+
+      <button id="resetButton" class="secondary-button">
+        TRY ANOTHER BAD IDEA
+      </button>
+
+    </section>
+
+
+    <footer>
+      <p>
+        This calculator is for entertainment and rough financial comparison only.
+        It is not financial advice.
+      </p>
+    </footer>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
