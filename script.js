@@ -4,6 +4,9 @@ const calculateButton =
 const resetButton =
   document.getElementById("resetButton");
 
+const shareButton =
+  document.getElementById("shareButton");
+
 const loadingSection =
   document.getElementById("loadingSection");
 
@@ -505,6 +508,46 @@ calculateButton.addEventListener(
       }
     );
 
+  }
+);
+
+
+shareButton.addEventListener(
+  "click",
+  async () => {
+
+    const damageLevel =
+      document.getElementById("damageLevel").textContent.trim();
+
+    const score =
+      document.getElementById("scoreValue").textContent.trim();
+
+    const comment =
+      document.getElementById("damageComment").textContent.trim();
+
+    const shareText =
+      `Financial Damage: ${score}/100 — ${damageLevel}\n${comment}\n${window.location.href}`;
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "Financial Damage Calculator",
+          text: shareText
+        });
+      } else {
+        await navigator.clipboard.writeText(shareText);
+        const originalText = shareButton.textContent;
+        shareButton.textContent = "COPIED TO CLIPBOARD";
+
+        setTimeout(() => {
+          shareButton.textContent = originalText;
+        }, 1800);
+      }
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        alert("Could not share the result. Your finances remain private... for now.");
+      }
+    }
   }
 );
 
