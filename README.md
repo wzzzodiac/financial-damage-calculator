@@ -30,10 +30,14 @@ This project is an entertainment and rough-comparison tool. The scoring formula 
 
 ## Tech
 
-Plain HTML, CSS and JavaScript. Results are calculated entirely in the browser; there is no backend and no financial data is transmitted anywhere.
+Plain HTML, CSS and JavaScript. Results are calculated entirely in the browser; there is no backend. Copying or sharing a result happens only when you request it.
 
 ## GitHub Pages
 
 Published at:
 
 `https://wzzzodiac.github.io/financial-damage-calculator/`
+
+## Design update
+
+Selected by Walter from the October 2026 proposal study. Previous main is preserved in `codex/backup-before-redesign-20261019`.
